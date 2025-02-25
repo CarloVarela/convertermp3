@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio - Cosmos e IA</title>
+  <!-- Enlaza el CSS desde la carpeta static -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <div class="navbar">
+    <a href="{{ url_for('index') }}">Inicio</a>
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('converter') }}">Convertidor</a>
+      <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Iniciar sesión</a>
+      <a href="{{ url_for('register') }}">Registrarse</a>
+    {% endif %}
+  </div>
+
+  <!-- Sección de héroe con imagen de fondo de cosmos -->
+  <section class="hero">
+    
+    <h1>Convertidor de Texto a MP3 Descargable</h1>
+    <p>Descubre noticias, innovaciones y el universo infinito.</p>
+    <img src="{{ url_for('static', filename='images/cosmos.jpg') }}" alt="cosmos" width="500">
+
+
+
+  </section>
+
+  <!-- Sección de noticias sobre IA -->
+  <section class="news">
+    <h2>Noticias Recientes sobre IA</h2>
+    <div class="news-container">
+      <article class="news-item">
+        <img src="{{ url_for('static', filename='images/ai1.jpg') }}" alt="Noticia 1">
+        <h3>Avances en IA Revolucionan la Medicina</h3>
+        <p>La inteligencia artificial está transformando diagnósticos y tratamientos médicos.</p>
+        <a href="#">Leer más</a>
+      </article>
+      <article class="news-item">
+        <img src="{{ url_for('static', filename='images/ai2.jpg') }}" alt="Noticia 2">
+        <h3>Robots Autónomos y el Futuro del Trabajo</h3>
+        <p>La automatización y la IA están cambiando el panorama laboral mundial.</p>
+        <a href="#">Leer más</a>
+      </article>
+      <article class="news-item">
+        <img src="{{ url_for('static', filename='images/ai3.jpg') }}" alt="Noticia 3">
+        <h3>Descubrimientos Cósmicos y IA: Un Nuevo Horizonte</h3>
+        <p>La combinación de IA y tecnología espacial está revelando secretos del universo.</p>
+        <a href="#">Leer más</a>
+      </article>
+    </div>
+  </section>
+
+  
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2023 Cosmos e IA. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
